@@ -1,416 +1,216 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>小羊不难 - AI创意设计作品集</title>
-    <link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>小羊不难 - 独立设计师作品集</title>
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <!-- ==================== 动态背景 ==================== -->
-    <div class="background-animation">
-        <div class="blob blob-1"></div>
-        <div class="blob blob-2"></div>
-        <div class="blob blob-3"></div>
-        <div class="bg-gradient"></div>
+
+  <!-- ===== 导航栏 ===== -->
+  <nav class="navbar">
+    <div class="nav-content">
+      <h1 class="logo">XYN</h1>
+      <ul class="nav-menu">
+        <li><a href="#home" class="nav-link active" data-section="home">首页</a></li>
+        <li><a href="#design" class="nav-link" data-section="design">设计</a></li>
+        <li><a href="#video" class="nav-link" data-section="video">视频</a></li>
+        <li><a href="#ai" class="nav-link" data-section="ai">AI创作</a></li>
+        <li><a href="#contact" class="nav-link" data-section="contact">联系</a></li>
+      </ul>
     </div>
+  </nav>
 
-    <!-- ==================== 导航栏 ==================== -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <div class="nav-logo">
-                <span class="logo-icon">🐑</span>
-                <span class="logo-text">小羊不难</span>
-            </div>
-            <div class="nav-menu" id="navMenu">
-                <a href="#home" class="nav-item">首页</a>
-                <a href="#about" class="nav-item">关于</a>
-                <a href="#portfolio" class="nav-item">作品</a>
-                <a href="#services" class="nav-item">服务</a>
-                <a href="#contact" class="nav-item">联系</a>
-            </div>
-            <div class="nav-toggle" id="navToggle">☰</div>
+  <!-- ===== 英雄页面 ===== -->
+  <section id="home" class="hero" style="background-image: url('https://images.unsplash.com/photo-1579783902614-e3fb5141b0cb?w=1920&h=1080&fit=crop');">
+    <div class="hero-overlay"></div>
+    
+    <div class="hero-content">
+      <div class="hero-text">
+        <h1 class="hero-title">小羊不难</h1>
+        <p class="hero-subtitle">独立设计师 / 创意导演 / 视频制作</p>
+        <p class="hero-desc">用创意点亮你的品牌 • 从设计到视频 • 一站式解决方案</p>
+        <button class="cta-btn">探索作品</button>
+      </div>
+      
+      <!-- 向下滚动动画 -->
+      <div class="scroll-down">
+        <span>向下滚动</span>
+        <div class="mouse">
+          <div class="wheel"></div>
         </div>
-    </nav>
+      </div>
+    </div>
+  </section>
 
-    <!-- ==================== 英雄区 ==================== -->
-    <section id="home" class="hero">
-        <!-- 背景图片 -->
-        <div class="hero-bg-image" id="heroBgImage"></div>
-
-        <!-- 遮罩层 -->
-        <div class="hero-overlay"></div>
-
-        <!-- 浮动粒子 -->
-        <div class="particles">
-            <div class="particle"></div>
-            <div class="particle"></div>
-            <div class="particle"></div>
-            <div class="particle"></div>
-            <div class="particle"></div>
-        </div>
-
-        <!-- 内容 -->
-        <div class="hero-content">
-            <div class="hero-text">
-                <div class="hero-badge">✨ 高级 AI 训练师</div>
-                <h1 class="hero-title">
-                    <span class="title-line">创意设计</span>
-                    <span class="title-line">AI 视觉</span>
-                    <span class="title-line">内容运营</span>
-                </h1>
-                <p class="hero-description">用 AI 和设计思维，打造爆款内容和视觉体验</p>
-                <div class="hero-cta">
-                    <a href="#portfolio" class="btn btn-primary">
-                        <span>查看作品</span>
-                        <span class="btn-icon">→</span>
-                    </a>
-                    <a href="#contact" class="btn btn-secondary">
-                        <span>联系我</span>
-                        <span class="btn-icon">→</span>
-                    </a>
-                </div>
-            </div>
-
-            <div class="hero-visual">
-                <div class="glass-orb">
-                    <div class="orb-inner"></div>
-                </div>
-            </div>
+  <!-- ===== 设计作品 ===== -->
+  <section id="design" class="portfolio-section">
+    <div class="container">
+      <h2 class="section-title">平面设计</h2>
+      <p class="section-desc">品牌视觉 / 海报设计 / UI设计 / 包装设计</p>
+      
+      <div class="portfolio-grid">
+        <div class="portfolio-item glass-effect">
+          <div class="portfolio-img" style="background-image: url('https://images.unsplash.com/photo-1561070791-2526d30994b5?w=500&h=500&fit=crop');"></div>
+          <div class="portfolio-info">
+            <h3>品牌视觉系统</h3>
+            <p>完整的品牌识别系统设计</p>
+          </div>
         </div>
 
-        <!-- 向下滚动提示 -->
-        <div class="scroll-indicator">
-            <span>向下滚动</span>
-            <div class="scroll-arrow">↓</div>
+        <div class="portfolio-item glass-effect">
+          <div class="portfolio-img" style="background-image: url('https://images.unsplash.com/photo-1561070791-2526d30994b5?w=500&h=500&fit=crop');"></div>
+          <div class="portfolio-info">
+            <h3>海报设计</h3>
+            <p>高端商业海报作品</p>
+          </div>
         </div>
-    </section>
 
-    <!-- ==================== 关于区 ==================== -->
-    <section id="about" class="about">
-        <div class="section-container">
-            <div class="section-header">
-                <h2 class="section-title">关于我</h2>
-                <p class="section-subtitle">长期在教育产品和内容创意领域深耕</p>
-            </div>
-
-            <div class="about-grid">
-                <div class="glass-card card-hover">
-                    <div class="card-icon">👤</div>
-                    <h3>身份</h3>
-                    <p>高级 AI 训练师 × 内容双赛道创作者</p>
-                </div>
-
-                <div class="glass-card card-hover">
-                    <div class="card-icon">🎯</div>
-                    <h3>专长</h3>
-                    <p>小红书文案 | AI 视觉 | 视频剪辑 | 策划运营</p>
-                </div>
-
-                <div class="glass-card card-hover">
-                    <div class="card-icon">💡</div>
-                    <h3>理念</h3>
-                    <p>拒绝花哨特效，追求质感和落地效果</p>
-                </div>
-            </div>
-
-            <div class="about-content">
-                <div class="glass-panel large">
-                    <h3>我的故事</h3>
-                    <p>
-                        长期做教育产品运营，泡在小红书流量逻辑里。
-                        擅长抓钩子、写有热度的文案，痴迷氛围感视觉与有记忆点的动态交互。
-                    </p>
-                    <p>
-                        不爱堆砌无效花哨特效，更看重交付质感、落地效果和客户想要的氛围感。
-                        用设计思维和 AI 技术，为品牌和产品创造令人难忘的体验。
-                    </p>
-                </div>
-            </div>
+        <div class="portfolio-item glass-effect">
+          <div class="portfolio-img" style="background-image: url('https://images.unsplash.com/photo-1561070791-2526d30994b5?w=500&h=500&fit=crop');"></div>
+          <div class="portfolio-info">
+            <h3>UI设计</h3>
+            <p>应用界面与用户体验设计</p>
+          </div>
         </div>
-    </section>
 
-    <!-- ==================== 能力区 ==================== -->
-    <section class="skills">
-        <div class="section-container">
-            <div class="section-header">
-                <h2 class="section-title">核心能力</h2>
-            </div>
-
-            <div class="skills-grid">
-                <div class="skill-card glass-card card-hover">
-                    <div class="skill-number">01</div>
-                    <div class="skill-icon">✍️</div>
-                    <h3>内容文案</h3>
-                    <p>小红书爆款策划、标题钩子、话题规划</p>
-                </div>
-
-                <div class="skill-card glass-card card-hover">
-                    <div class="skill-number">02</div>
-                    <div class="skill-icon">🎨</div>
-                    <h3>AI 视觉</h3>
-                    <p>提示词定制、4K 电影感、画面风格把控</p>
-                </div>
-
-                <div class="skill-card glass-card card-hover">
-                    <div class="skill-number">03</div>
-                    <div class="skill-icon">🎬</div>
-                    <h3>视觉物料</h3>
-                    <p>短视频剪辑、海报设计、素材排版</p>
-                </div>
-
-                <div class="skill-card glass-card card-hover">
-                    <div class="skill-number">04</div>
-                    <div class="skill-icon">🎯</div>
-                    <h3>策划运营</h3>
-                    <p>活动全案、脚本策划、账号内容规划</p>
-                </div>
-
-                <div class="skill-card glass-card card-hover">
-                    <div class="skill-number">05</div>
-                    <div class="skill-icon">💻</div>
-                    <h3>网页开发</h3>
-                    <p>交互设计、动效调试、全栈部署</p>
-                </div>
-
-                <div class="skill-card glass-card card-hover">
-                    <div class="skill-number">06</div>
-                    <div class="skill-icon">🌟</div>
-                    <h3>品牌策略</h3>
-                    <p>品牌定位、视觉系统、全渠道传播</p>
-                </div>
-            </div>
+        <div class="portfolio-item glass-effect">
+          <div class="portfolio-img" style="background-image: url('https://images.unsplash.com/photo-1561070791-2526d30994b5?w=500&h=500&fit=crop');"></div>
+          <div class="portfolio-info">
+            <h3>包装设计</h3>
+            <p>产品包装创意方案</p>
+          </div>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <!-- ==================== 作品集 ==================== -->
-    <section id="portfolio" class="portfolio">
-        <div class="section-container">
-            <div class="section-header">
-                <h2 class="section-title">精选作品</h2>
-                <p class="section-subtitle">用创意和技术打造的精品案例</p>
-            </div>
-
-            <div class="portfolio-filter">
-                <button class="filter-btn active" data-filter="all">全部</button>
-                <button class="filter-btn" data-filter="video">视频</button>
-                <button class="filter-btn" data-filter="design">设计</button>
-                <button class="filter-btn" data-filter="ai">AI</button>
-                <button class="filter-btn" data-filter="photo">摄影</button>
-            </div>
-
-            <div class="portfolio-grid">
-                <div class="portfolio-card glass-card card-hover" data-category="video">
-                    <div class="card-image">
-                        <img src="https://images.unsplash.com/photo-1579462770228-d66b3a259eaf?w=600&h=400&fit=crop" alt="">
-                        <div class="card-overlay">
-                            <div class="overlay-content">
-                                <h3>小红书爆款视频</h3>
-                                <p>高转化率短视频剪辑</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="portfolio-card glass-card card-hover" data-category="design">
-                    <div class="card-image">
-                        <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?w=600&h=400&fit=crop" alt="">
-                        <div class="card-overlay">
-                            <div class="overlay-content">
-                                <h3>品牌海报设计</h3>
-                                <p>高质感视觉物料</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="portfolio-card glass-card card-hover" data-category="ai">
-                    <div class="card-image">
-                        <img src="https://images.unsplash.com/photo-1611339555312-e607c90352fd?w=600&h=400&fit=crop" alt="">
-                        <div class="card-overlay">
-                            <div class="overlay-content">
-                                <h3>AI 电影感短片</h3>
-                                <p>4K 电影级视觉</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="portfolio-card glass-card card-hover" data-category="photo">
-                    <div class="card-image">
-                        <img src="https://images.unsplash.com/photo-1606986628024-312c0e2e9c1d?w=600&h=400&fit=crop" alt="">
-                        <div class="card-overlay">
-                            <div class="overlay-content">
-                                <h3>活动摄影摄像</h3>
-                                <p>专业影像记录</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="portfolio-card glass-card card-hover" data-category="design">
-                    <div class="card-image">
-                        <img src="https://images.unsplash.com/photo-1598900898505-c6f2a2bd5390?w=600&h=400&fit=crop" alt="">
-                        <div class="card-overlay">
-                            <div class="overlay-content">
-                                <h3>创意品牌视觉</h3>
-                                <p>视觉系统设计</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="portfolio-card glass-card card-hover" data-category="video">
-                    <div class="card-image">
-                        <img src="https://images.unsplash.com/photo-1553531886-49ef45c3c7b8?w=600&h=400&fit=crop" alt="">
-                        <div class="card-overlay">
-                            <div class="overlay-content">
-                                <h3>电商产品视频</h3>
-                                <p>转化率优化方案</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+  <!-- ===== 视频作品 ===== -->
+  <section id="video" class="portfolio-section" style="background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%);">
+    <div class="container">
+      <h2 class="section-title">视频制作</h2>
+      <p class="section-desc">MV制作 / 广告短视频 / 企业宣传片 / 动画制作</p>
+      
+      <div class="portfolio-grid">
+        <div class="portfolio-item glass-effect">
+          <div class="portfolio-img video-thumbnail" style="background-image: url('https://images.unsplash.com/photo-1574375927938-d5a98e8ffe85?w=500&h=500&fit=crop');">
+            <div class="play-icon">▶</div>
+          </div>
+          <div class="portfolio-info">
+            <h3>音乐MV制作</h3>
+            <p>高质感音乐视频作品</p>
+          </div>
         </div>
-    </section>
 
-    <!-- ==================== 服务区 ==================== -->
-    <section id="services" class="services">
-        <div class="section-container">
-            <div class="section-header">
-                <h2 class="section-title">服务方向</h2>
-                <p class="section-subtitle">为不同阶段的品牌提供定制化解决方案</p>
-            </div>
-
-            <div class="services-grid">
-                <div class="service-card glass-card card-hover">
-                    <div class="service-icon">📱</div>
-                    <h3>内容运营</h3>
-                    <p>账号整体规划、内容矩阵、爆款策划、增长运营</p>
-                    <div class="service-tags">
-                        <span>小红书</span>
-                        <span>文案</span>
-                        <span>策划</span>
-                    </div>
-                </div>
-
-                <div class="service-card glass-card card-hover">
-                    <div class="service-icon">🎨</div>
-                    <h3>视觉设计</h3>
-                    <p>品牌VI、海报设计、短视频制作、素材库建设</p>
-                    <div class="service-tags">
-                        <span>视觉</span>
-                        <span>设计</span>
-                        <span>物料</span>
-                    </div>
-                </div>
-
-                <div class="service-card glass-card card-hover">
-                    <div class="service-icon">✨</div>
-                    <h3>AI 创意</h3>
-                    <p>Midjourney 出图、风格定制、内容矩阵生成</p>
-                    <div class="service-tags">
-                        <span>AI</span>
-                        <span>创意</span>
-                        <span>出图</span>
-                    </div>
-                </div>
-
-                <div class="service-card glass-card card-hover">
-                    <div class="service-icon">🚀</div>
-                    <h3>项目落地</h3>
-                    <p>活动全案、整合营销、效果评估、品牌传播</p>
-                    <div class="service-tags">
-                        <span>全案</span>
-                        <span>营销</span>
-                        <span>传播</span>
-                    </div>
-                </div>
-            </div>
+        <div class="portfolio-item glass-effect">
+          <div class="portfolio-img video-thumbnail" style="background-image: url('https://images.unsplash.com/photo-1574375927938-d5a98e8ffe85?w=500&h=500&fit=crop');">
+            <div class="play-icon">▶</div>
+          </div>
+          <div class="portfolio-info">
+            <h3>广告短视频</h3>
+            <p>品牌宣传视频制作</p>
+          </div>
         </div>
-    </section>
 
-    <!-- ==================== 联系区 ==================== -->
-    <section id="contact" class="contact">
-        <div class="section-container">
-            <div class="section-header">
-                <h2 class="section-title">一起创造</h2>
-                <p class="section-subtitle">有想法？让我们聊聊如何合作</p>
-            </div>
-
-            <div class="contact-content">
-                <div class="contact-info glass-panel">
-                    <h3>联系方式</h3>
-                    <div class="contact-methods">
-                        <a href="tel:13803241270" class="contact-method">
-                            <span class="method-icon">📱</span>
-                            <div class="method-content">
-                                <div class="method-label">电话</div>
-                                <div class="method-value">138 0324 1270</div>
-                            </div>
-                        </a>
-                        <a href="mailto:790342713@qq.com" class="contact-method">
-                            <span class="method-icon">✉️</span>
-                            <div class="method-content">
-                                <div class="method-label">邮箱</div>
-                                <div class="method-value">790342713@qq.com</div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-
-                <form class="contact-form glass-panel" id="contactForm">
-                    <h3>发送消息</h3>
-                    <div class="form-group">
-                        <input type="text" id="name" placeholder="您的名字" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="email" id="email" placeholder="您的邮箱" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="text" id="subject" placeholder="项目主题" required>
-                    </div>
-                    <div class="form-group">
-                        <textarea id="message" placeholder="项目需求..." rows="4" required></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-primary full-width">
-                        <span>发送消息</span>
-                        <span class="btn-icon">→</span>
-                    </button>
-                </form>
-            </div>
+        <div class="portfolio-item glass-effect">
+          <div class="portfolio-img video-thumbnail" style="background-image: url('https://images.unsplash.com/photo-1574375927938-d5a98e8ffe85?w=500&h=500&fit=crop');">
+            <div class="play-icon">▶</div>
+          </div>
+          <div class="portfolio-info">
+            <h3>企业宣传片</h3>
+            <p>公司形象宣传视频</p>
+          </div>
         </div>
-    </section>
 
-    <!-- ==================== 页脚 ==================== -->
-    <footer class="footer">
-        <div class="section-container">
-            <div class="footer-content">
-                <div class="footer-brand">
-                    <h3>小羊不难</h3>
-                    <p>用创意和 AI，打造爆款内容和视觉体验</p>
-                </div>
-                <div class="footer-links">
-                    <div class="link-group">
-                        <h4>导航</h4>
-                        <a href="#home">首页</a>
-                        <a href="#about">关于</a>
-                        <a href="#portfolio">作品</a>
-                    </div>
-                    <div class="link-group">
-                        <h4>服务</h4>
-                        <a href="#services">全部服务</a>
-                        <a href="#contact">联系我</a>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 小羊不难 | 用创意改变世界</p>
-            </div>
+        <div class="portfolio-item glass-effect">
+          <div class="portfolio-img video-thumbnail" style="background-image: url('https://images.unsplash.com/photo-1574375927938-d5a98e8ffe85?w=500&h=500&fit=crop');">
+            <div class="play-icon">▶</div>
+          </div>
+          <div class="portfolio-info">
+            <h3>动画制作</h3>
+            <p>创意动画视频作品</p>
+          </div>
         </div>
-    </footer>
+      </div>
+    </div>
+  </section>
 
-    <script src="js/script.js"></script>
+  <!-- ===== AI创作 ===== -->
+  <section id="ai" class="portfolio-section">
+    <div class="container">
+      <h2 class="section-title">AI创作</h2>
+      <p class="section-desc">AI图像生成 / AI视频制作 / 创意实验 / 数字艺术</p>
+      
+      <div class="portfolio-grid">
+        <div class="portfolio-item glass-effect">
+          <div class="portfolio-img" style="background-image: url('https://images.unsplash.com/photo-1677599618296-aad67c8bed77?w=500&h=500&fit=crop');"></div>
+          <div class="portfolio-info">
+            <h3>AI绘画作品</h3>
+            <p>AI生成艺术创意作品</p>
+          </div>
+        </div>
+
+        <div class="portfolio-item glass-effect">
+          <div class="portfolio-img" style="background-image: url('https://images.unsplash.com/photo-1677599618296-aad67c8bed77?w=500&h=500&fit=crop');"></div>
+          <div class="portfolio-info">
+            <h3>AI视频</h3>
+            <p>AI生成视频内容</p>
+          </div>
+        </div>
+
+        <div class="portfolio-item glass-effect">
+          <div class="portfolio-img" style="background-image: url('https://images.unsplash.com/photo-1677599618296-aad67c8bed77?w=500&h=500&fit=crop');"></div>
+          <div class="portfolio-info">
+            <h3>创意实验</h3>
+            <p>AI与创意的结合</p>
+          </div>
+        </div>
+
+        <div class="portfolio-item glass-effect">
+          <div class="portfolio-img" style="background-image: url('https://images.unsplash.com/photo-1677599618296-aad67c8bed77?w=500&h=500&fit=crop');"></div>
+          <div class="portfolio-info">
+            <h3>数字艺术</h3>
+            <p>前沿数字创意作品</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 联系区 ===== -->
+  <section id="contact" class="contact-section">
+    <div class="container">
+      <h2 class="section-title">让我们合作</h2>
+      
+      <div class="contact-content glass-effect">
+        <p>有项目需要合作？期待与你交流创意想法</p>
+        
+        <div class="contact-info">
+          <div class="info-item">
+            <h4>📧 邮箱</h4>
+            <p>hello@xiaoyang.com</p>
+          </div>
+          <div class="info-item">
+            <h4>📱 微信</h4>
+            <p>xiaoyang_design</p>
+          </div>
+          <div class="info-item">
+            <h4>🌐 社交</h4>
+            <p>小红书 / 抖音 / 微博</p>
+          </div>
+        </div>
+
+        <button class="contact-btn">发送邮件</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 页脚 ===== -->
+  <footer class="footer">
+    <p>&copy; 2024 小羊不难 All Rights Reserved.</p>
+  </footer>
+
+  <script src="js/script.js"></script>
 </body>
 </html>
