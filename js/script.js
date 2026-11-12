@@ -1,96 +1,87 @@
 // ========================================
-// 小羊不难 - 卡通涂鸦风作品集交互脚本
+// 小羊不难 - 高级毛玻璃设计交互脚本
 // ========================================
 
 document.addEventListener('DOMContentLoaded', function() {
-    setupNavigation();
-    setupPortfolioInteraction();
-    setupFormValidation();
-    setupScrollAnimations();
+    initNavigation();
+    initPortfolioFilter();
+    initFormValidation();
+    initScrollAnimations();
+    initMouseGlow();
 });
 
-// ========== 导航栏处理 ==========
-function setupNavigation() {
-    const navLinks = document.querySelectorAll('.nav-link');
-    const hamburger = document.querySelector('.hamburger');
-    const navMenu = document.querySelector('.navbar-menu');
-    const navbar = document.querySelector('.navbar');
+// ========== 导航交互 ==========
+function initNavigation() {
+    const navItems = document.querySelectorAll('.nav-item');
+    const navMenu = document.querySelector('.nav-menu');
 
-    navLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
+    navItems.forEach(item => {
+        item.addEventListener('click', function(e) {
             e.preventDefault();
             const targetId = this.getAttribute('href');
             
-            navLinks.forEach(l => l.classList.remove('active'));
-            this.classList.add('active');
-
-            if (navMenu) {
-                navMenu.classList.remove('active');
-            }
-
-            const targetSection = document.querySelector(targetId);
-            if (targetSection) {
-                const offset = 80;
-                const targetPosition = targetSection.offsetTop - offset;
-                window.scrollTo({
-                    top: targetPosition,
-                    behavior: 'smooth'
-                });
+            if (targetId && targetId !== '#') {
+                navItems.forEach(i => i.style.opacity = '0.7');
+                this.style.opacity = '1';
+                
+                const target = document.querySelector(targetId);
+                if (target) {
+                    const offset = 80;
+                    const targetPosition = target.offsetTop - offset;
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
             }
         });
     });
 
-    if (hamburger) {
-        hamburger.addEventListener('click', function() {
-            navMenu.classList.toggle('active');
-        });
-    }
-
-    window.addEventListener('scroll', function() {
+    // 滚动时更新导航状态
+    window.addEventListener('scroll', () => {
         const scrollY = window.scrollY;
         
-        const sections = document.querySelectorAll('section[id]');
-        let currentSection = '';
-        
-        sections.forEach(section => {
-            const sectionTop = section.offsetTop - 100;
-            const sectionHeight = section.offsetHeight;
-            
-            if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
-                currentSection = section.getAttribute('id');
-            }
-        });
-
-        navLinks.forEach(link => {
-            link.classList.remove('active');
-            if (link.getAttribute('href') === '#' + currentSection) {
-                link.classList.add('active');
+        navItems.forEach(item => {
+            const targetId = item.getAttribute('href');
+            if (targetId && targetId !== '#') {
+                const target = document.querySelector(targetId);
+                if (target) {
+                    const rect = target.getBoundingClientRect();
+                    if (rect.top < 150 && rect.bottom > 150) {
+                        navItems.forEach(i => i.style.opacity = '0.7');
+                        item.style.opacity = '1';
+                    }
+                }
             }
         });
     });
 }
 
-// ========== 作品集交互 ==========
-function setupPortfolioInteraction() {
+// ========== 作品集过滤 ==========
+function initPortfolioFilter() {
     const filterBtns = document.querySelectorAll('.filter-btn');
-    const portfolioItems = document.querySelectorAll('.portfolio-item');
+    const portfolioCards = document.querySelectorAll('.portfolio-card');
 
     filterBtns.forEach(btn => {
         btn.addEventListener('click', function() {
             const filterValue = this.getAttribute('data-filter');
 
+            // 更新按钮状态
             filterBtns.forEach(b => b.classList.remove('active'));
             this.classList.add('active');
 
-            portfolioItems.forEach(item => {
-                const category = item.getAttribute('data-category');
+            // 过滤卡片
+            portfolioCards.forEach(card => {
+                const category = card.getAttribute('data-category');
                 
                 if (filterValue === 'all' || category === filterValue) {
-                    item.style.display = 'block';
-                    item.classList.add('show');
+                    card.style.display = 'block';
+                    card.style.animation = 'none';
+                    setTimeout(() => {
+                        card.style.animation = 'fade-in-up 0.6s ease-out';
+                    }, 10);
                 } else {
-                    item.style.display = 'none';
-                    item.classList.remove('show');
+                    card.style.display = 'none';
                 }
             });
         });
@@ -98,7 +89,7 @@ function setupPortfolioInteraction() {
 }
 
 // ========== 表单验证 ==========
-function setupFormValidation() {
+function initFormValidation() {
     const form = document.getElementById('contactForm');
     if (!form) return;
 
@@ -111,48 +102,53 @@ function setupFormValidation() {
         inputs.forEach(input => {
             if (!input.value.trim()) {
                 isValid = false;
-                input.style.borderColor = '#ff6b9d';
-            } else {
-                input.style.borderColor = '#000';
+                highlightInput(input);
+            }
 
-                if (input.type === 'email') {
-                    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                    if (!emailRegex.test(input.value)) {
-                        isValid = false;
-                        input.style.borderColor = '#ff6b9d';
-                    }
+            if (input.type === 'email' && input.value) {
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailRegex.test(input.value)) {
+                    isValid = false;
+                    highlightInput(input);
                 }
             }
         });
 
         if (isValid) {
-            const submitBtn = form.querySelector('.btn-primary');
-            const originalText = submitBtn.textContent;
-
-            submitBtn.disabled = true;
-            submitBtn.textContent = '✓ 消息已发送！';
+            const btn = form.querySelector('.submit-btn');
+            const originalText = btn.textContent;
+            
+            btn.textContent = '✓ 消息已发送！';
+            btn.disabled = true;
 
             setTimeout(() => {
                 form.reset();
-                submitBtn.textContent = originalText;
-                submitBtn.disabled = false;
-                
-                inputs.forEach(input => {
-                    input.style.borderColor = '#000';
-                });
+                btn.textContent = originalText;
+                btn.disabled = false;
             }, 2000);
         }
     });
 
-    form.querySelectorAll('input, textarea').forEach(field => {
-        field.addEventListener('input', function() {
-            this.style.borderColor = '#000';
+    function highlightInput(input) {
+        input.style.borderColor = 'rgba(255, 0, 85, 0.8)';
+        input.style.backgroundColor = 'rgba(255, 0, 85, 0.1)';
+
+        input.addEventListener('focus', function() {
+            this.style.borderColor = 'rgba(255, 0, 85, 0.5)';
+            this.style.backgroundColor = 'rgba(255, 255, 255, 0.05)';
         });
-    });
+
+        input.addEventListener('blur', function() {
+            if (!this.value.trim()) {
+                this.style.borderColor = 'rgba(255, 0, 85, 0.8)';
+                this.style.backgroundColor = 'rgba(255, 0, 85, 0.1)';
+            }
+        });
+    }
 }
 
 // ========== 滚动动画 ==========
-function setupScrollAnimations() {
+function initScrollAnimations() {
     const observerOptions = {
         threshold: 0.1,
         rootMargin: '0px 0px -100px 0px'
@@ -168,12 +164,42 @@ function setupScrollAnimations() {
         });
     }, observerOptions);
 
-    document.querySelectorAll('.portfolio-item, .capability-card, .testimonial-card').forEach(el => {
+    // 观察需要动画的元素
+    const animatedElements = document.querySelectorAll(
+        '.glass-card, .ability-card, .service-card, .testimonial, .portfolio-card'
+    );
+
+    animatedElements.forEach(el => {
         el.style.opacity = '0';
         el.style.transform = 'translateY(30px)';
-        el.style.transition = 'all 0.6s ease-out';
+        el.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
         observer.observe(el);
     });
 }
 
-console.log('🐑 小羊不难 - 卡通涂鸦风作品集已加载！');
+// ========== 鼠标发光效果 ==========
+function initMouseGlow() {
+    const cards = document.querySelectorAll('.glass-card');
+
+    cards.forEach(card => {
+        card.addEventListener('mousemove', function(e) {
+            const rect = this.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+
+            const rotateX = (y - centerY) / 10;
+            const rotateY = (centerX - x) / 10;
+
+            this.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(10px)`;
+        });
+
+        card.addEventListener('mouseleave', function() {
+            this.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateZ(0)';
+        });
+    });
+}
+
+console.log('🔮 高级毛玻璃设计已加载！');
