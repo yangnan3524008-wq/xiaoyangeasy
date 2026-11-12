@@ -1,17 +1,18 @@
 /* ========================================
-   高级毛玻璃风格 - 简洁版
+   胶片质感 - 黑橙色高级配色
    ======================================== */
 
 /* ========== CSS 变量 ========== */
 :root {
-    --primary: #ff0055;
-    --secondary: #00ffff;
-    --accent: #ff00ff;
-    --dark-bg: #0a0e27;
-    --darker-bg: #050812;
-    --text-primary: #ffffff;
-    --text-secondary: #a0a0a0;
-    --glass-light: rgba(255, 255, 255, 0.1);
+    --primary: #FF6B35;
+    --secondary: #FFB26B;
+    --accent: #FF8C42;
+    --gold: #D4A574;
+    --dark-bg: #0F0E0E;
+    --darker-bg: #050505;
+    --text-primary: #F5F5F5;
+    --text-secondary: #B8B8B8;
+    --glass-light: rgba(255, 255, 255, 0.08);
     --glass-dark: rgba(0, 0, 0, 0.3);
     --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -33,6 +34,7 @@ body {
     color: var(--text-primary);
     overflow-x: hidden;
     line-height: 1.6;
+    letter-spacing: 0.3px;
 }
 
 /* ========== 动态背景 ========== */
@@ -52,7 +54,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(135deg, #0a0e27 0%, #1a0f3c 50%, #050812 100%);
+    background: linear-gradient(135deg, #0F0E0E 0%, #1a1410 50%, #050505 100%);
     z-index: -1;
 }
 
@@ -61,13 +63,13 @@ body {
     border-radius: 50%;
     mix-blend-mode: screen;
     filter: blur(80px);
-    opacity: 0.3;
+    opacity: 0.25;
 }
 
 .blob-1 {
     width: 400px;
     height: 400px;
-    background: radial-gradient(circle, #ff0055, transparent);
+    background: radial-gradient(circle, #FF6B35, transparent);
     top: 10%;
     left: 5%;
     animation: float 20s ease-in-out infinite;
@@ -76,7 +78,7 @@ body {
 .blob-2 {
     width: 500px;
     height: 500px;
-    background: radial-gradient(circle, #00ffff, transparent);
+    background: radial-gradient(circle, #FFB26B, transparent);
     bottom: 10%;
     right: 5%;
     animation: float 15s ease-in-out infinite reverse;
@@ -85,7 +87,7 @@ body {
 .blob-3 {
     width: 300px;
     height: 300px;
-    background: radial-gradient(circle, #ff00ff, transparent);
+    background: radial-gradient(circle, #D4A574, transparent);
     top: 50%;
     right: 20%;
     animation: float 18s ease-in-out infinite;
@@ -99,9 +101,9 @@ body {
 /* ========== 毛玻璃效果 ========== */
 .glass-panel,
 .glass-card {
-    background: rgba(255, 255, 255, 0.08);
+    background: rgba(255, 255, 255, 0.06);
     backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 107, 53, 0.2);
     border-radius: 20px;
 }
 
@@ -120,9 +122,9 @@ body {
     top: 0;
     width: 100%;
     height: 80px;
-    background: rgba(5, 8, 18, 0.8);
+    background: rgba(5, 5, 5, 0.85);
     backdrop-filter: blur(20px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(255, 107, 53, 0.15);
     z-index: 1000;
     display: flex;
     align-items: center;
@@ -152,10 +154,11 @@ body {
 }
 
 .logo-text {
-    background: linear-gradient(135deg, #ff0055, #00ffff);
+    background: linear-gradient(135deg, #FF6B35, #FFB26B, #D4A574);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    font-weight: 900;
 }
 
 .nav-menu {
@@ -169,6 +172,8 @@ body {
     font-weight: 600;
     position: relative;
     transition: var(--transition);
+    font-size: 0.95rem;
+    letter-spacing: 0.5px;
 }
 
 .nav-item:hover {
@@ -182,7 +187,7 @@ body {
     left: 0;
     width: 0;
     height: 2px;
-    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    background: linear-gradient(135deg, var(--primary), var(--accent));
     transition: var(--transition);
 }
 
@@ -220,6 +225,7 @@ body {
     z-index: 0;
     opacity: 1;
     transition: opacity 0.6s ease;
+    filter: brightness(0.6) contrast(1.1);
 }
 
 .hero-overlay {
@@ -228,7 +234,7 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    background: radial-gradient(circle at 50% 50%, transparent 0%, rgba(0, 0, 0, 0.6) 100%);
+    background: radial-gradient(circle at 50% 50%, transparent 0%, rgba(0, 0, 0, 0.7) 100%);
     z-index: 1;
 }
 
@@ -243,7 +249,7 @@ body {
     position: absolute;
     width: 2px;
     height: 2px;
-    background: rgba(255, 255, 255, 0.5);
+    background: rgba(255, 107, 53, 0.4);
     border-radius: 50%;
     animation: float-particle 15s infinite;
 }
@@ -273,14 +279,15 @@ body {
 .hero-badge {
     display: inline-block;
     padding: 10px 20px;
-    background: rgba(255, 0, 85, 0.2);
-    border: 1px solid rgba(255, 0, 85, 0.5);
+    background: rgba(255, 107, 53, 0.2);
+    border: 1px solid rgba(255, 107, 53, 0.5);
     border-radius: 50px;
-    color: #ff0055;
+    color: #FFB26B;
     font-size: 0.9rem;
     font-weight: 600;
     margin-bottom: 1.5rem;
     backdrop-filter: blur(10px);
+    letter-spacing: 0.5px;
 }
 
 .hero-title {
@@ -288,11 +295,12 @@ body {
     font-weight: 900;
     line-height: 1.2;
     margin-bottom: 2rem;
+    letter-spacing: -1px;
 }
 
 .title-line {
     display: block;
-    background: linear-gradient(135deg, #ff0055, #00ffff, #ff00ff);
+    background: linear-gradient(135deg, #FF6B35, #FFB26B, #FF8C42);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -318,6 +326,7 @@ body {
     color: var(--text-secondary);
     margin-bottom: 2.5rem;
     line-height: 1.8;
+    letter-spacing: 0.3px;
 }
 
 .hero-cta {
@@ -341,26 +350,26 @@ body {
 }
 
 .btn-primary {
-    background: linear-gradient(135deg, #ff0055, #ff00ff);
+    background: linear-gradient(135deg, #FF6B35, #FF8C42);
     color: white;
-    box-shadow: 0 10px 30px rgba(255, 0, 85, 0.3);
+    box-shadow: 0 10px 30px rgba(255, 107, 53, 0.4);
 }
 
 .btn-primary:hover {
     transform: translateY(-3px);
-    box-shadow: 0 15px 40px rgba(255, 0, 85, 0.5);
+    box-shadow: 0 15px 40px rgba(255, 107, 53, 0.6);
 }
 
 .btn-secondary {
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.08);
     color: var(--text-primary);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 107, 53, 0.3);
 }
 
 .btn-secondary:hover {
-    background: rgba(255, 255, 255, 0.15);
+    background: rgba(255, 107, 53, 0.15);
     border-color: var(--primary);
-    color: var(--primary);
+    color: var(--secondary);
 }
 
 .btn-icon {
@@ -386,21 +395,22 @@ body {
     width: 300px;
     height: 300px;
     border-radius: 50%;
-    background: radial-gradient(circle at 30% 30%, rgba(255, 0, 85, 0.2), transparent);
-    border: 2px solid rgba(255, 0, 85, 0.3);
+    background: radial-gradient(circle at 30% 30%, rgba(255, 107, 53, 0.2), transparent);
+    border: 2px solid rgba(255, 107, 53, 0.3);
     backdrop-filter: blur(20px);
     display: flex;
     align-items: center;
     justify-content: center;
     animation: rotate 20s linear infinite;
+    box-shadow: 0 0 60px rgba(255, 107, 53, 0.2);
 }
 
 .orb-inner {
     width: 200px;
     height: 200px;
     border-radius: 50%;
-    background: radial-gradient(circle at 30% 30%, rgba(0, 255, 255, 0.2), transparent);
-    border: 1px solid rgba(0, 255, 255, 0.2);
+    background: radial-gradient(circle at 30% 30%, rgba(255, 178, 107, 0.2), transparent);
+    border: 1px solid rgba(255, 178, 107, 0.2);
     animation: rotate-reverse 15s linear infinite;
 }
 
@@ -426,11 +436,13 @@ body {
     color: var(--text-secondary);
     font-size: 0.9rem;
     z-index: 2;
+    letter-spacing: 0.3px;
 }
 
 .scroll-arrow {
     font-size: 1.5rem;
     animation: bounce 2s infinite;
+    color: var(--primary);
 }
 
 @keyframes bounce {
@@ -459,20 +471,22 @@ section {
     font-size: 3rem;
     font-weight: 900;
     margin-bottom: 1rem;
-    background: linear-gradient(135deg, #ff0055, #00ffff);
+    background: linear-gradient(135deg, #FF6B35, #FFB26B);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    letter-spacing: -1px;
 }
 
 .section-subtitle {
     font-size: 1.1rem;
     color: var(--text-secondary);
+    letter-spacing: 0.3px;
 }
 
 /* ========== 关于区 ========== */
 .about {
-    background: linear-gradient(180deg, rgba(255, 0, 85, 0.05) 0%, transparent 100%);
+    background: linear-gradient(180deg, rgba(255, 107, 53, 0.04) 0%, transparent 100%);
 }
 
 .about-grid {
@@ -495,12 +509,18 @@ section {
 .glass-card.card-hover h3 {
     font-size: 1.3rem;
     margin-bottom: 1rem;
+    letter-spacing: 0.5px;
+}
+
+.glass-card.card-hover p {
+    color: var(--text-secondary);
+    line-height: 1.6;
 }
 
 .glass-card.card-hover:hover {
     transform: translateY(-10px);
-    background: rgba(255, 0, 85, 0.1);
-    border-color: rgba(255, 0, 85, 0.3);
+    background: rgba(255, 107, 53, 0.12);
+    border-color: rgba(255, 107, 53, 0.4);
 }
 
 .about-content {
@@ -515,17 +535,19 @@ section {
 .glass-panel.large h3 {
     font-size: 1.5rem;
     margin-bottom: 1.5rem;
+    letter-spacing: 0.5px;
 }
 
 .glass-panel.large p {
     margin-bottom: 1.5rem;
     line-height: 1.8;
     color: var(--text-secondary);
+    letter-spacing: 0.3px;
 }
 
 /* ========== 能力区 ========== */
 .skills {
-    background: linear-gradient(180deg, transparent 0%, rgba(0, 255, 255, 0.05) 100%);
+    background: linear-gradient(180deg, transparent 0%, rgba(255, 107, 53, 0.03) 100%);
 }
 
 .skills-grid {
@@ -543,7 +565,7 @@ section {
 .skill-number {
     font-size: 2.5rem;
     font-weight: 900;
-    background: linear-gradient(135deg, #ff0055, #ff00ff);
+    background: linear-gradient(135deg, #FF6B35, #FFB26B);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -559,22 +581,24 @@ section {
 .skill-card h3 {
     font-size: 1.3rem;
     margin-bottom: 0.8rem;
+    letter-spacing: 0.5px;
 }
 
 .skill-card p {
     color: var(--text-secondary);
     font-size: 0.95rem;
+    line-height: 1.6;
 }
 
 .skill-card:hover {
     transform: translateY(-10px);
-    background: rgba(0, 255, 255, 0.1);
-    border-color: rgba(0, 255, 255, 0.3);
+    background: rgba(255, 107, 53, 0.12);
+    border-color: rgba(255, 107, 53, 0.4);
 }
 
 /* ========== 作品集 ========== */
 .portfolio {
-    background: linear-gradient(180deg, rgba(255, 0, 85, 0.05) 0%, transparent 100%);
+    background: linear-gradient(180deg, rgba(255, 107, 53, 0.04) 0%, transparent 100%);
 }
 
 .portfolio-filter {
@@ -587,7 +611,7 @@ section {
 
 .filter-btn {
     padding: 10px 24px;
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 107, 53, 0.3);
     background: transparent;
     color: var(--text-secondary);
     border-radius: 50px;
@@ -595,6 +619,7 @@ section {
     transition: var(--transition);
     font-weight: 600;
     font-size: 0.95rem;
+    letter-spacing: 0.3px;
 }
 
 .filter-btn:hover,
@@ -602,7 +627,7 @@ section {
     background: var(--primary);
     color: white;
     border-color: var(--primary);
-    box-shadow: 0 10px 30px rgba(255, 0, 85, 0.3);
+    box-shadow: 0 10px 30px rgba(255, 107, 53, 0.4);
 }
 
 .portfolio-grid {
@@ -629,12 +654,13 @@ section {
     height: 100%;
     object-fit: cover;
     transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    filter: saturate(1.1) contrast(1.05);
 }
 
 .card-overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(135deg, rgba(255, 0, 85, 0.2), rgba(0, 255, 255, 0.2));
+    background: linear-gradient(135deg, rgba(255, 107, 53, 0.25), rgba(212, 165, 116, 0.15));
     backdrop-filter: blur(10px);
     display: flex;
     align-items: flex-end;
@@ -651,11 +677,13 @@ section {
 .overlay-content h3 {
     font-size: 1.3rem;
     margin-bottom: 0.5rem;
+    letter-spacing: 0.5px;
 }
 
 .overlay-content p {
     color: var(--text-secondary);
     font-size: 0.9rem;
+    letter-spacing: 0.3px;
 }
 
 .portfolio-card:hover .card-image img {
@@ -672,7 +700,7 @@ section {
 
 /* ========== 服务区 ========== */
 .services {
-    background: linear-gradient(180deg, transparent 0%, rgba(0, 255, 255, 0.05) 100%);
+    background: linear-gradient(180deg, transparent 0%, rgba(255, 107, 53, 0.03) 100%);
 }
 
 .services-grid {
@@ -694,12 +722,14 @@ section {
 .service-card h3 {
     font-size: 1.3rem;
     margin-bottom: 1rem;
+    letter-spacing: 0.5px;
 }
 
 .service-card p {
     color: var(--text-secondary);
     line-height: 1.8;
     margin-bottom: 1.5rem;
+    letter-spacing: 0.3px;
 }
 
 .service-tags {
@@ -710,22 +740,23 @@ section {
 
 .service-tags span {
     padding: 6px 14px;
-    background: rgba(0, 255, 255, 0.1);
-    border: 1px solid rgba(0, 255, 255, 0.3);
+    background: rgba(255, 107, 53, 0.12);
+    border: 1px solid rgba(255, 107, 53, 0.3);
     border-radius: 20px;
     font-size: 0.8rem;
-    color: #00ffff;
+    color: var(--secondary);
+    letter-spacing: 0.3px;
 }
 
 .service-card:hover {
     transform: translateY(-10px);
-    background: rgba(0, 255, 255, 0.1);
-    border-color: rgba(0, 255, 255, 0.3);
+    background: rgba(255, 107, 53, 0.12);
+    border-color: rgba(255, 107, 53, 0.4);
 }
 
 /* ========== 联系区 ========== */
 .contact {
-    background: linear-gradient(180deg, transparent 0%, rgba(0, 255, 255, 0.05) 100%);
+    background: linear-gradient(180deg, transparent 0%, rgba(255, 107, 53, 0.03) 100%);
 }
 
 .contact-content {
@@ -738,6 +769,7 @@ section {
 .contact-form h3 {
     font-size: 1.5rem;
     margin-bottom: 2rem;
+    letter-spacing: 0.5px;
 }
 
 .contact-methods {
@@ -752,14 +784,16 @@ section {
     align-items: flex-start;
     text-decoration: none;
     padding: 1.5rem;
-    background: rgba(255, 255, 255, 0.05);
+    background: rgba(255, 107, 53, 0.08);
     border-radius: 12px;
     transition: var(--transition);
+    border: 1px solid rgba(255, 107, 53, 0.15);
 }
 
 .contact-method:hover {
-    background: rgba(255, 0, 85, 0.15);
+    background: rgba(255, 107, 53, 0.18);
     transform: translateX(10px);
+    border-color: rgba(255, 107, 53, 0.3);
 }
 
 .method-icon {
@@ -778,12 +812,13 @@ section {
     font-size: 1rem;
     font-weight: 600;
     color: var(--text-primary);
+    letter-spacing: 0.2px;
 }
 
 .contact-form {
-    background: rgba(255, 255, 255, 0.08);
+    background: rgba(255, 255, 255, 0.06);
     backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 107, 53, 0.2);
     border-radius: 20px;
     padding: 2.5rem;
 }
@@ -797,31 +832,33 @@ section {
     width: 100%;
     padding: 12px 16px;
     background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 107, 53, 0.2);
     border-radius: 10px;
     color: var(--text-primary);
     font-family: inherit;
     font-size: 1rem;
     transition: var(--transition);
+    letter-spacing: 0.2px;
 }
 
 .form-group input::placeholder,
 .form-group textarea::placeholder {
-    color: rgba(160, 160, 160, 0.5);
+    color: rgba(184, 184, 184, 0.4);
+    letter-spacing: 0.2px;
 }
 
 .form-group input:focus,
 .form-group textarea:focus {
     outline: none;
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 107, 53, 0.1);
     border-color: var(--primary);
-    box-shadow: 0 0 15px rgba(255, 0, 85, 0.2);
+    box-shadow: 0 0 15px rgba(255, 107, 53, 0.2);
 }
 
 /* ========== 页脚 ========== */
 .footer {
-    background: rgba(0, 0, 0, 0.5);
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(0, 0, 0, 0.6);
+    border-top: 1px solid rgba(255, 107, 53, 0.15);
     padding: 4rem 0 2rem;
 }
 
@@ -831,16 +868,18 @@ section {
     gap: 4rem;
     margin-bottom: 3rem;
     padding-bottom: 2rem;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(255, 107, 53, 0.15);
 }
 
 .footer-brand h3 {
     font-size: 1.5rem;
     margin-bottom: 0.5rem;
+    letter-spacing: 0.5px;
 }
 
 .footer-brand p {
     color: var(--text-secondary);
+    letter-spacing: 0.3px;
 }
 
 .footer-links {
@@ -852,6 +891,7 @@ section {
 .link-group h4 {
     margin-bottom: 1rem;
     font-size: 1rem;
+    letter-spacing: 0.3px;
 }
 
 .link-group a {
@@ -860,6 +900,7 @@ section {
     text-decoration: none;
     margin-bottom: 0.8rem;
     transition: var(--transition);
+    letter-spacing: 0.3px;
 }
 
 .link-group a:hover {
@@ -871,6 +912,7 @@ section {
     text-align: center;
     color: var(--text-secondary);
     font-size: 0.9rem;
+    letter-spacing: 0.3px;
 }
 
 /* ========== 响应式 ========== */
