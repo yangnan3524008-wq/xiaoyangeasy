@@ -3,384 +3,253 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>设计师作品集 - 小羊不难 | UI/UX Designer</title>
+    <title>小羊不难 - AI创意设计作品集</title>
     <link rel="stylesheet" href="css/style.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
 </head>
 <body>
     <!-- ==================== 导航栏 ==================== -->
     <nav class="navbar">
-        <div class="container">
-            <div class="navbar-brand">
-                <div class="logo-icon">✦</div>
-                <span class="brand-name">Your Name</span>
-            </div>
-            
-            <button class="hamburger" id="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-            
-            <div class="navbar-menu" id="navMenu">
-                <a href="#home" class="nav-link active">首页</a>
-                <a href="#about" class="nav-link">关于</a>
-                <a href="#portfolio" class="nav-link">作品</a>
-                <a href="#experience" class="nav-link">经历</a>
-                <a href="#skills" class="nav-link">技能</a>
-                <a href="#contact" class="nav-link">联系</a>
+        <div class="nav-container">
+            <div class="nav-logo">小羊不难</div>
+            <div class="nav-menu" id="navMenu">
+                <a href="#home" class="nav-item">首页</a>
+                <a href="#about" class="nav-item">关于</a>
+                <a href="#portfolio" class="nav-item">作品</a>
+                <a href="#services" class="nav-item">服务</a>
+                <a href="#contact" class="nav-item">联系</a>
             </div>
         </div>
     </nav>
 
     <!-- ==================== 英雄区 ==================== -->
     <section id="home" class="hero">
-        <!-- 动态背景 -->
-        <div class="hero-bg">
-            <div class="gradient-orb orb-1"></div>
-            <div class="gradient-orb orb-2"></div>
-            <div class="gradient-orb orb-3"></div>
-            <canvas id="particleCanvas" class="particle-canvas"></canvas>
-        </div>
-        
         <div class="hero-content">
-            <div class="hero-subtitle">👋 欢迎来到我的设计世界</div>
-            
-            <h1 class="hero-title">
-                <span class="title-line">设计师 + 创意人</span>
-                <span class="title-highlight">打造视觉故事</span>
-            </h1>
-            
-            <p class="hero-description">
-                用设计思维和创新能力，为品牌和产品创造令人难忘的体验。
-                <br>
-                <span class="highlight-text">从概念到像素，每一个细节都很重要。</span>
-            </p>
-            
-            <div class="hero-cta">
-                <a href="#portfolio" class="btn btn-primary">查看作品</a>
-                <a href="#contact" class="btn btn-secondary">联系我</a>
-            </div>
-            
-            <div class="scroll-indicator">
-                <span class="scroll-text">向下滚动</span>
-                <div class="scroll-mouse">
-                    <div class="scroll-wheel"></div>
+            <!-- 色散光线玻璃方块 -->
+            <div class="glass-cube-container">
+                <div class="glass-cube">
+                    <div class="cube-face front"></div>
+                    <div class="cube-face back"></div>
+                    <div class="cube-face right"></div>
+                    <div class="cube-face left"></div>
+                    <div class="cube-face top"></div>
+                    <div class="cube-face bottom"></div>
                 </div>
+                <!-- 色散光线效果 -->
+                <div class="prism-light prism-red"></div>
+                <div class="prism-light prism-cyan"></div>
+                <div class="prism-light prism-magenta"></div>
+            </div>
+
+            <!-- 文字内容 -->
+            <div class="hero-text">
+                <h1 class="hero-title">
+                    <span class="title-word">创意</span>
+                    <span class="title-word">设计</span>
+                    <span class="title-word">AI</span>
+                </h1>
+                <p class="hero-subtitle">高级 AI 训练师 × 内容视觉创作者</p>
+                <p class="hero-description">用设计和技术，打造爆款内容</p>
+                <a href="#portfolio" class="cta-button">
+                    <span class="button-text">查看作品</span>
+                    <div class="button-glow"></div>
+                </a>
             </div>
         </div>
     </section>
 
     <!-- ==================== 关于区 ==================== -->
     <section id="about" class="about">
-        <div class="container">
-            <div class="section-header">
-                <h2>关于我</h2>
-                <div class="header-line"></div>
-            </div>
+        <div class="section-container">
+            <h2 class="section-title">关于我</h2>
             
-            <div class="about-content">
-                <div class="about-left">
-                    <div class="about-image">
-                        <div class="image-placeholder">
-                            <div class="placeholder-icon">📸</div>
-                            <p>点击上传您的照片</p>
-                        </div>
+            <div class="about-grid">
+                <div class="glass-card">
+                    <div class="card-content">
+                        <h3>身份</h3>
+                        <p>高级 AI 训练师 + 内容双赛道创作者</p>
                     </div>
                 </div>
-                
-                <div class="about-right">
-                    <div class="about-text">
-                        <h3>你好，我叫 [Carla]</h3>
-                        <p>
-                            我是一名具有 [10] 年经验的剪辑师，内容 + 视觉双赛道创作者。
-                            不爱堆砌无效花哨特效，更看重交付质感、落地效果和客户想要的氛围感。
-                        </p>
-                        
-                        <p>
-                            我的设计方法论：<strong>用户研究 → 创意思考 → 精细执行</strong>
-                        </p>
-                        
-                        <p>
-                            身份地位：熬夜特区顶级钉子户🚫、全球赖床锦标赛形象大使🏆、泡面鉴赏终身成就奖得主🍜。警告：长时间接触可能导致认知偏差、忍不住吐槽或跟着一起发疯，请适量使用。
-​​甩锅给猫版​​：我提前说一下，我是文盲，这个账号是我和猫共用的。如果发了不好的言论，那都是猫发的，我家猫刚学上网，请多见谅，骂人的都是猫，它四个爪子比我打字快🐱。
-                        </p>
+
+                <div class="glass-card">
+                    <div class="card-content">
+                        <h3>专长</h3>
+                        <p>小红书文案 | AI 视觉 | 视频剪辑 | 策划运营</p>
                     </div>
-                    
-                    <div class="about-highlights">
-                        <div class="highlight-item">
-                            <div class="highlight-number">50+</div>
-                            <div class="highlight-label">已完成项目</div>
-                        </div>
-                        <div class="highlight-item">
-                            <div class="highlight-number">100+</div>
-                            <div class="highlight-label">满意客户</div>
-                        </div>
-                        <div class="highlight-item">
-                            <div class="highlight-number">5+</div>
-                            <div class="highlight-label">年设计经验</div>
-                        </div>
+                </div>
+
+                <div class="glass-card">
+                    <div class="card-content">
+                        <h3>理念</h3>
+                        <p>拒绝花哨特效，追求质感和落地效果</p>
                     </div>
+                </div>
+            </div>
+
+            <div class="about-text glass-panel">
+                <p>
+                    长期做教育产品运营，泡在小红书流量逻辑里。
+                    擅长抓钩子、写有热度的文案，痴迷氛围感视觉与有记忆点的动态交互。
+                </p>
+                <p>
+                    不爱堆砌无效花哨特效，更看重交付质感、落地效果和客户想要的氛围感。
+                    用设计思维和 AI 技术，为品牌和产品创造令人难忘的体验。
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== 核心能力 ==================== -->
+    <section class="capabilities">
+        <div class="section-container">
+            <h2 class="section-title">核心能力</h2>
+            
+            <div class="abilities-grid">
+                <div class="ability-card glass-card">
+                    <div class="ability-icon">✍️</div>
+                    <h3>内容文案</h3>
+                    <p>小红书爆款策划、标题钩子、话题规划</p>
+                </div>
+
+                <div class="ability-card glass-card">
+                    <div class="ability-icon">🎨</div>
+                    <h3>AI 视觉</h3>
+                    <p>提示词定制、4K 电影感、画面风格把控</p>
+                </div>
+
+                <div class="ability-card glass-card">
+                    <div class="ability-icon">🎬</div>
+                    <h3>视觉物料</h3>
+                    <p>短视频剪辑、海报设计、素材排版</p>
+                </div>
+
+                <div class="ability-card glass-card">
+                    <div class="ability-icon">🎯</div>
+                    <h3>策划运营</h3>
+                    <p>活动全案、脚本策划、账号内容规划</p>
+                </div>
+
+                <div class="ability-card glass-card">
+                    <div class="ability-icon">💻</div>
+                    <h3>网页开发</h3>
+                    <p>交互设计、动效调试、全栈部署</p>
+                </div>
+
+                <div class="ability-card glass-card">
+                    <div class="ability-icon">🌟</div>
+                    <h3>品牌策略</h3>
+                    <p>品牌定位、视觉系统、全渠道传播</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ==================== 作品集区 ==================== -->
+    <!-- ==================== 作品集 ==================== -->
     <section id="portfolio" class="portfolio">
-        <div class="container">
-            <div class="section-header">
-                <h2>我的作品</h2>
-                <div class="header-line"></div>
-            </div>
-            
+        <div class="section-container">
+            <h2 class="section-title">精选作品</h2>
+
             <div class="portfolio-filter">
                 <button class="filter-btn active" data-filter="all">全部</button>
-                <button class="filter-btn" data-filter="ui">UI 设计</button>
-                <button class="filter-btn" data-filter="web">网站</button>
-                <button class="filter-btn" data-filter="brand">品牌</button>
-                <button class="filter-btn" data-filter="illustration">插画</button>
+                <button class="filter-btn" data-filter="video">视频</button>
+                <button class="filter-btn" data-filter="design">设计</button>
+                <button class="filter-btn" data-filter="ai">AI</button>
+                <button class="filter-btn" data-filter="photo">摄影</button>
+                <button class="filter-btn" data-filter="landmark">地标</button>
             </div>
-            
+
             <div class="portfolio-grid">
-                <!-- 作品1 -->
-                <div class="portfolio-item" data-category="ui" data-title="金融应用设计">
-                    <div class="item-image">
-                        <img src="https://images.unsplash.com/photo-1633356122544-f134324ef6db?w=600&h=400&fit=crop" alt="作品1">
-                        <div class="item-overlay">
-                            <div class="overlay-content">
-                                <h3>金融应用设计</h3>
-                                <p>用户友好的投资应用界面设计</p>
-                                <div class="item-tags">
-                                    <span class="tag">UI/UX</span>
-                                    <span class="tag">App</span>
-                                </div>
-                            </div>
-                        </div>
+                <!-- 作品卡片模板 -->
+                <div class="portfolio-card glass-card" data-category="video">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1579462770228-d66b3a259eaf?w=600&h=400&fit=crop" alt="">
+                    </div>
+                    <div class="card-overlay">
+                        <h3>小红书爆款视频</h3>
+                        <p>高转化率短视频剪辑</p>
                     </div>
                 </div>
-                
-                <!-- 作品2 -->
-                <div class="portfolio-item" data-category="web" data-title="电商平台设计">
-                    <div class="item-image">
-                        <img src="https://images.unsplash.com/photo-1460925895917-adf4e565db19?w=600&h=400&fit=crop" alt="作品2">
-                        <div class="item-overlay">
-                            <div class="overlay-content">
-                                <h3>电商平台设计</h3>
-                                <p>现代化购物体验设计与优化</p>
-                                <div class="item-tags">
-                                    <span class="tag">Web</span>
-                                    <span class="tag">E-commerce</span>
-                                </div>
-                            </div>
-                        </div>
+
+                <div class="portfolio-card glass-card" data-category="design">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?w=600&h=400&fit=crop" alt="">
+                    </div>
+                    <div class="card-overlay">
+                        <h3>品牌海报设计</h3>
+                        <p>高质感视觉物料</p>
                     </div>
                 </div>
-                
-                <!-- 作品3 -->
-                <div class="portfolio-item" data-category="brand" data-title="品牌形象设计">
-                    <div class="item-image">
-                        <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?w=600&h=400&fit=crop" alt="作品3">
-                        <div class="item-overlay">
-                            <div class="overlay-content">
-                                <h3>品牌形象设计</h3>
-                                <p>完整的视觉识别系统设计</p>
-                                <div class="item-tags">
-                                    <span class="tag">品牌</span>
-                                    <span class="tag">VI 系统</span>
-                                </div>
-                            </div>
-                        </div>
+
+                <div class="portfolio-card glass-card" data-category="ai">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1611339555312-e607c90352fd?w=600&h=400&fit=crop" alt="">
+                    </div>
+                    <div class="card-overlay">
+                        <h3>AI 电影感短片</h3>
+                        <p>4K 电影级视觉</p>
                     </div>
                 </div>
-                
-                <!-- 作品4 -->
-                <div class="portfolio-item" data-category="illustration" data-title="插画系列">
-                    <div class="item-image">
-                        <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?w=600&h=400&fit=crop" alt="作品4">
-                        <div class="item-overlay">
-                            <div class="overlay-content">
-                                <h3>插画系列</h3>
-                                <p>品牌故事插画创作</p>
-                                <div class="item-tags">
-                                    <span class="tag">插画</span>
-                                    <span class="tag">创意</span>
-                                </div>
-                            </div>
-                        </div>
+
+                <div class="portfolio-card glass-card" data-category="photo">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1606986628024-312c0e2e9c1d?w=600&h=400&fit=crop" alt="">
+                    </div>
+                    <div class="card-overlay">
+                        <h3>活动摄影摄像</h3>
+                        <p>专业影像记录</p>
                     </div>
                 </div>
-                
-                <!-- 作品5 -->
-                <div class="portfolio-item" data-category="ui" data-title="健康应用">
-                    <div class="item-image">
-                        <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=600&h=400&fit=crop" alt="作品5">
-                        <div class="item-overlay">
-                            <div class="overlay-content">
-                                <h3>健康应用</h3>
-                                <p>健身追踪应用交互设计</p>
-                                <div class="item-tags">
-                                    <span class="tag">UI/UX</span>
-                                    <span class="tag">健康</span>
-                                </div>
-                            </div>
-                        </div>
+
+                <div class="portfolio-card glass-card" data-category="landmark">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1598900898505-c6f2a2bd5390?w=600&h=400&fit=crop" alt="">
+                    </div>
+                    <div class="card-overlay">
+                        <h3>世博谷灯光秀</h3>
+                        <p>地标投放全案</p>
                     </div>
                 </div>
-                
-                <!-- 作品6 -->
-                <div class="portfolio-item" data-category="web" data-title="创意工作室网站">
-                    <div class="item-image">
-                        <img src="https://images.unsplash.com/photo-1460925895917-adf4e565db19?w=600&h=400&fit=crop" alt="作品6">
-                        <div class="item-overlay">
-                            <div class="overlay-content">
-                                <h3>创意工作室网站</h3>
-                                <p>沉浸式作品集网站设计</p>
-                                <div class="item-tags">
-                                    <span class="tag">Web</span>
-                                    <span class="tag">Portfolio</span>
-                                </div>
-                            </div>
-                        </div>
+
+                <div class="portfolio-card glass-card" data-category="video">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1553531886-49ef45c3c7b8?w=600&h=400&fit=crop" alt="">
+                    </div>
+                    <div class="card-overlay">
+                        <h3>电商产品视频</h3>
+                        <p>转化率优化方案</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ==================== 经历时间线 ==================== -->
-    <section id="experience" class="experience">
-        <div class="container">
-            <div class="section-header">
-                <h2>职业经历</h2>
-                <div class="header-line"></div>
-            </div>
-            
-            <div class="timeline">
-                <!-- 经历1 -->
-                <div class="timeline-item">
-                    <div class="timeline-marker"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-date">2022 - 至今</div>
-                        <h3>高级 UI/UX 设计师</h3>
-                        <p class="company">某知名科技公司</p>
-                        <ul class="achievements">
-                            <li>带领设计团队完成 15+ 个产品设计项目</li>
-                            <li>建立公司级别的设计规范和组件库</li>
-                            <li>通过用户研究优化产品，提升用户满意度 40%</li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <!-- 经历2 -->
-                <div class="timeline-item">
-                    <div class="timeline-marker"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-date">2019 - 2022</div>
-                        <h3>UI/UX 设计师</h3>
-                        <p class="company">互联网创业公司</p>
-                        <ul class="achievements">
-                            <li>从零开始设计产品，帮助公司获得 A 轮融资</li>
-                            <li>负责移动应用和网站的设计工作</li>
-                            <li>与产品、技术团队密切合作，推动项目上线</li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <!-- 经历3 -->
-                <div class="timeline-item">
-                    <div class="timeline-marker"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-date">2017 - 2019</div>
-                        <h3>平面设计师</h3>
-                        <p class="company">设计工作室</p>
-                        <ul class="achievements">
-                            <li>为 50+ 个品牌设计了视觉形象和营销物料</li>
-                            <li>参与品牌策略和创意概念开发</li>
-                            <li>获得国际设计奖项</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    <!-- ==================== 服务 ==================== -->
+    <section id="services" class="services">
+        <div class="section-container">
+            <h2 class="section-title">服务方向</h2>
 
-    <!-- ==================== 技能区 ==================== -->
-    <section id="skills" class="skills">
-        <div class="container">
-            <div class="section-header">
-                <h2>技能与工具</h2>
-                <div class="header-line"></div>
-            </div>
-            
-            <div class="skills-content">
-                <div class="skills-category">
-                    <h3>设计工具</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Figma</span>
-                        <span class="skill-tag">Adobe XD</span>
-                        <span class="skill-tag">Sketch</span>
-                        <span class="skill-tag">Adobe Creative Suite</span>
-                        <span class="skill-tag">Framer</span>
-                        <span class="skill-tag">Protopie</span>
-                    </div>
+            <div class="services-grid">
+                <div class="service-card glass-card">
+                    <div class="service-number">01</div>
+                    <h3>内容运营</h3>
+                    <p>账号整体规划、内容矩阵、爆款策划、增长运营</p>
                 </div>
-                
-                <div class="skills-category">
-                    <h3>设计领域</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">UI/UX 设计</span>
-                        <span class="skill-tag">Web 设计</span>
-                        <span class="skill-tag">App 设计</span>
-                        <span class="skill-tag">品牌设计</span>
-                        <span class="skill-tag">用户研究</span>
-                        <span class="skill-tag">设计系统</span>
-                    </div>
-                </div>
-                
-                <div class="skills-category">
-                    <h3>专业技能</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">用户体验优化</span>
-                        <span class="skill-tag">交互设计</span>
-                        <span class="skill-tag">视觉设计</span>
-                        <span class="skill-tag">可用性测试</span>
-                        <span class="skill-tag">设计思维</span>
-                        <span class="skill-tag">项目管理</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- ==================== 认可与奖项 ==================== -->
-    <section class="awards">
-        <div class="container">
-            <div class="section-header">
-                <h2>认可与荣誉</h2>
-                <div class="header-line"></div>
-            </div>
-            
-            <div class="awards-grid">
-                <div class="award-card">
-                    <div class="award-icon">🏆</div>
-                    <h3>国际设计奖</h3>
-                    <p>iF Design Award 2023</p>
+                <div class="service-card glass-card">
+                    <div class="service-number">02</div>
+                    <h3>视觉设计</h3>
+                    <p>品牌VI、海报设计、短视频制作、素材库建设</p>
                 </div>
-                <div class="award-card">
-                    <div class="award-icon">🎨</div>
-                    <h3>红点设计奖</h3>
-                    <p>Red Dot Design Award 2022</p>
+
+                <div class="service-card glass-card">
+                    <div class="service-number">03</div>
+                    <h3>AI 创意</h3>
+                    <p>Midjourney 出图、风格定制、内容矩阵生成</p>
                 </div>
-                <div class="award-card">
-                    <div class="award-icon">⭐</div>
-                    <h3>最佳设计项目</h3>
-                    <p>设计大赛优秀作品奖 2021</p>
-                </div>
-                <div class="award-card">
-                    <div class="award-icon">💡</div>
-                    <h3>创新设计</h3>
-                    <p>Design Innovation Award 2020</p>
+
+                <div class="service-card glass-card">
+                    <div class="service-number">04</div>
+                    <h3>项目落地</h3>
+                    <p>活动全案、整合营销、效果评估、品牌传播</p>
                 </div>
             </div>
         </div>
@@ -388,160 +257,66 @@
 
     <!-- ==================== 客户评价 ==================== -->
     <section class="testimonials">
-        <div class="container">
-            <div class="section-header">
-                <h2>客户评价</h2>
-                <div class="header-line"></div>
-            </div>
-            
+        <div class="section-container">
+            <h2 class="section-title">客户评价</h2>
+
             <div class="testimonials-grid">
-                <div class="testimonial-card">
-                    <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
-                    <p class="testimonial-text">
-                        "设计师完全理解了我们的品牌需求，交付的作品超出预期。
-                        专业、高效、创意十足！"
-                    </p>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">👤</div>
-                        <div>
-                            <div class="author-name">张总</div>
-                            <div class="author-role">某知名品牌 CEO</div>
-                        </div>
-                    </div>
+                <div class="testimonial glass-card">
+                    <div class="stars">★★★★★</div>
+                    <p>"专业度顶尖，文案和视觉的配合让转化率直接翻倍"</p>
+                    <div class="author">品牌运营总监</div>
                 </div>
-                
-                <div class="testimonial-card">
-                    <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
-                    <p class="testimonial-text">
-                        "与设计师的合作体验非常愉快。设计方案不仅美观，
-                        更重要的是真正解决了我们产品的用户问题。"
-                    </p>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">👤</div>
-                        <div>
-                            <div class="author-name">李女士</div>
-                            <div class="author-role">初创公司创始人</div>
-                        </div>
-                    </div>
+
+                <div class="testimonial glass-card">
+                    <div class="stars">★★★★★</div>
+                    <p>"AI 出图质感简直绝了，省了我们大笔预算"</p>
+                    <div class="author">创意总监</div>
                 </div>
-                
-                <div class="testimonial-card">
-                    <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
-                    <p class="testimonial-text">
-                        "设计师在整个项目过程中展现了高度的专业素养和
-                        创新思维，值得推荐！"
-                    </p>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">👤</div>
-                        <div>
-                            <div class="author-name">王先生</div>
-                            <div class="author-role">企业设计总监</div>
-                        </div>
-                    </div>
+
+                <div class="testimonial glass-card">
+                    <div class="stars">★★★★★</div>
+                    <p>"交付质感超群，每个细节都考虑周全，强烈推荐"</p>
+                    <div class="author">品牌创始人</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ==================== 作品详情模态框 ==================== -->
-    <div class="portfolio-modal" id="portfolioModal">
-        <div class="modal-content">
-            <button class="modal-close">&times;</button>
-            <div class="modal-body">
-                <div class="modal-image">
-                    <img id="modalImage" src="" alt="">
-                </div>
-                <div class="modal-info">
-                    <h2 id="modalTitle"></h2>
-                    <p id="modalDescription"></p>
-                    <div class="modal-details">
-                        <div class="detail-item">
-                            <strong>项目类型：</strong>
-                            <span id="modalType"></span>
-                        </div>
-                        <div class="detail-item">
-                            <strong>完成时间：</strong>
-                            <span id="modalDate"></span>
-                        </div>
-                        <div class="detail-item">
-                            <strong>客户反馈：</strong>
-                            <span id="modalFeedback"></span>
-                        </div>
-                    </div>
-                    <a href="#" class="btn btn-primary">查看完整项目</a>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <!-- ==================== 联系区 ==================== -->
     <section id="contact" class="contact">
-        <div class="container">
-            <div class="contact-wrapper">
-                <div class="contact-content">
-                    <h2>让我们创造些什么</h2>
-                    <p>
-                        有想法？有项目？我很乐意听听您的故事。
-                        <br>
-                        无论项目大小，我都有热情来创造令人印象深刻的设计。
-                    </p>
-                    
+        <div class="section-container">
+            <h2 class="section-title">一起创造</h2>
+
+            <div class="contact-content">
+                <div class="contact-info glass-panel">
+                    <p>有想法？让我们聊聊</p>
                     <div class="contact-methods">
-                        <a href="mailto:your.email@example.com" class="contact-method">
-                            <span class="method-icon">✉️</span>
-                            <div>
-                                <div class="method-label">邮箱</div>
-                                <div class="method-value">your.email@example.com</div>
-                            </div>
-                        </a>
-                        
-                        <a href="tel:+8613800000000" class="contact-method">
-                            <span class="method-icon">📱</span>
+                        <a href="tel:13803241270" class="method">
+                            <span>📱</span>
                             <div>
                                 <div class="method-label">电话</div>
-                                <div class="method-value">+86 138 0000 0000</div>
+                                <div class="method-value">138 0324 1270</div>
                             </div>
                         </a>
-                        
-                        <div class="contact-method">
-                            <span class="method-icon">📍</span>
+                        <a href="mailto:790342713@qq.com" class="method">
+                            <span>✉️</span>
                             <div>
-                                <div class="method-label">地址</div>
-                                <div class="method-value">北京市朝阳区</div>
+                                <div class="method-label">邮箱</div>
+                                <div class="method-value">790342713@qq.com</div>
                             </div>
-                        </div>
-                    </div>
-                    
-                    <div class="social-links">
-                        <a href="https://dribbble.com" class="social-link" target="_blank">Dribbble</a>
-                        <a href="https://behance.net" class="social-link" target="_blank">Behance</a>
-                        <a href="https://instagram.com" class="social-link" target="_blank">Instagram</a>
-                        <a href="https://linkedin.com" class="social-link" target="_blank">LinkedIn</a>
+                        </a>
                     </div>
                 </div>
-                
-                <form class="contact-form" id="contactForm">
-                    <div class="form-group">
-                        <input type="text" id="name" placeholder="您的名字" required>
-                        <label for="name">名字</label>
-                    </div>
-                    
-                    <div class="form-group">
-                        <input type="email" id="email" placeholder="your@email.com" required>
-                        <label for="email">邮箱</label>
-                    </div>
-                    
-                    <div class="form-group">
-                        <input type="text" id="subject" placeholder="项目主题" required>
-                        <label for="subject">主题</label>
-                    </div>
-                    
-                    <div class="form-group">
-                        <textarea id="message" placeholder="告诉我您的想法..." rows="5" required></textarea>
-                        <label for="message">消息</label>
-                    </div>
-                    
-                    <button type="submit" class="btn btn-primary">发送消息</button>
+
+                <form class="contact-form glass-panel" id="contactForm">
+                    <input type="text" id="name" placeholder="您的名字" required>
+                    <input type="email" id="email" placeholder="您的邮箱" required>
+                    <input type="text" id="subject" placeholder="项目主题" required>
+                    <textarea id="message" placeholder="项目需求..." rows="5" required></textarea>
+                    <button type="submit" class="submit-btn">
+                        <span>发送</span>
+                        <div class="btn-glow"></div>
+                    </button>
                 </form>
             </div>
         </div>
@@ -549,34 +324,7 @@
 
     <!-- ==================== 页脚 ==================== -->
     <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>Your Name</h3>
-                    <p>用设计创造美好体验</p>
-                </div>
-                <div class="footer-section">
-                    <h3>快速链接</h3>
-                    <ul>
-                        <li><a href="#home">首页</a></li>
-                        <li><a href="#portfolio">作品</a></li>
-                        <li><a href="#about">关于</a></li>
-                        <li><a href="#contact">联系</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h3>社交媒体</h3>
-                    <ul>
-                        <li><a href="#">Dribbble</a></li>
-                        <li><a href="#">Behance</a></li>
-                        <li><a href="#">Instagram</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 Your Name. 保留所有权利。</p>
-            </div>
-        </div>
+        <p>&copy; 2024 小羊不难 | 用创意改变世界</p>
     </footer>
 
     <script src="js/script.js"></script>
