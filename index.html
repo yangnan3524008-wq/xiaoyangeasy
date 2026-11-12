@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>小羊不难 - AI创意设计作品集</title>
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/admin.css">
 </head>
 <body>
     <!-- ==================== 动态背景 ==================== -->
@@ -36,11 +35,6 @@
 
     <!-- ==================== 英雄区 ==================== -->
     <section id="home" class="hero">
-        <!-- 背景视频 -->
-        <video class="hero-video" id="heroVideo" autoplay muted loop playsinline>
-            <source src="" type="video/mp4">
-        </video>
-
         <!-- 背景图片 -->
         <div class="hero-bg-image" id="heroBgImage"></div>
 
@@ -337,53 +331,6 @@
         </div>
     </section>
 
-    <!-- ==================== 评价区 ==================== -->
-    <section class="testimonials">
-        <div class="section-container">
-            <div class="section-header">
-                <h2 class="section-title">客户评价</h2>
-            </div>
-
-            <div class="testimonials-grid">
-                <div class="testimonial glass-card card-hover">
-                    <div class="stars">⭐⭐⭐⭐⭐</div>
-                    <p class="testimonial-text">"专业度顶尖，文案和视觉的配合让转化率直接翻倍"</p>
-                    <div class="author-info">
-                        <div class="author-avatar">B</div>
-                        <div>
-                            <div class="author-name">品牌运营总监</div>
-                            <div class="author-title">某头部品牌</div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="testimonial glass-card card-hover">
-                    <div class="stars">⭐⭐⭐⭐⭐</div>
-                    <p class="testimonial-text">"AI 出图质感简直绝了，省了我们大笔预算"</p>
-                    <div class="author-info">
-                        <div class="author-avatar">C</div>
-                        <div>
-                            <div class="author-name">创意总监</div>
-                            <div class="author-title">互联网公司</div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="testimonial glass-card card-hover">
-                    <div class="stars">⭐⭐⭐⭐⭐</div>
-                    <p class="testimonial-text">"交付质感超群，每个细节都考虑周全，强烈推荐"</p>
-                    <div class="author-info">
-                        <div class="author-avatar">Y</div>
-                        <div>
-                            <div class="author-name">品牌创始人</div>
-                            <div class="author-title">新消费品牌</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- ==================== 联系区 ==================== -->
     <section id="contact" class="contact">
         <div class="section-container">
@@ -464,143 +411,6 @@
         </div>
     </footer>
 
-    <!-- ==================== 编辑面板 ==================== -->
-    <div class="admin-panel" id="adminPanel">
-        <button class="admin-toggle" id="adminToggle">⚙️</button>
-        
-        <div class="admin-modal" id="adminModal">
-            <div class="admin-header">
-                <h2>🎨 网站编辑器</h2>
-                <button class="admin-close" id="adminClose">✕</button>
-            </div>
-            
-            <div class="admin-content">
-                <!-- 英雄区编辑 -->
-                <div class="admin-section">
-                    <h3>🎬 英雄区背景</h3>
-                    
-                    <div class="bg-type-selector">
-                        <label class="type-option">
-                            <input type="radio" name="bgType" value="image" checked>
-                            <span>📷 图片</span>
-                        </label>
-                        <label class="type-option">
-                            <input type="radio" name="bgType" value="video">
-                            <span>🎥 视频</span>
-                        </label>
-                    </div>
-
-                    <div class="form-group">
-                        <label>背景 URL：</label>
-                        <input type="text" id="heroBg" placeholder="输入图片或视频链接" class="admin-input">
-                    </div>
-
-                    <div class="bg-preview" id="bgPreview">
-                        <div class="preview-placeholder">预览</div>
-                    </div>
-
-                    <button class="admin-btn-small" onclick="applyHeroBg()">✓ 应用背景</button>
-                </div>
-
-                <!-- 文字内容编辑 -->
-                <div class="admin-section">
-                    <h3>📝 文字内容</h3>
-                    
-                    <div class="form-group">
-                        <label>徽章文字：</label>
-                        <input type="text" id="heroBadge" placeholder="输入徽章" class="admin-input" maxlength="30">
-                    </div>
-
-                    <div class="form-group">
-                        <label>标题行 1：</label>
-                        <input type="text" id="titleLine1" placeholder="输入标题" class="admin-input" maxlength="20">
-                    </div>
-
-                    <div class="form-group">
-                        <label>标题行 2：</label>
-                        <input type="text" id="titleLine2" placeholder="输入标题" class="admin-input" maxlength="20">
-                    </div>
-
-                    <div class="form-group">
-                        <label>标题行 3：</label>
-                        <input type="text" id="titleLine3" placeholder="输入标题" class="admin-input" maxlength="20">
-                    </div>
-
-                    <div class="form-group">
-                        <label>描述文字：</label>
-                        <input type="text" id="heroDescription" placeholder="输入描述" class="admin-input" maxlength="100">
-                    </div>
-
-                    <button class="admin-btn-small" onclick="applyHeroText()">✓ 应用文字</button>
-                </div>
-
-                <!-- 关于区编辑 -->
-                <div class="admin-section">
-                    <h3>👤 关于我</h3>
-                    
-                    <div class="form-group">
-                        <label>自我介绍：</label>
-                        <textarea id="aboutText" placeholder="输入自我介绍（支持换行）" class="admin-textarea" maxlength="500"></textarea>
-                    </div>
-
-                    <button class="admin-btn-small" onclick="applyAboutText()">✓ 应用介绍</button>
-                </div>
-
-                <!-- 作品集编辑 -->
-                <div class="admin-section">
-                    <h3>🎨 作品集</h3>
-                    
-                    <div class="form-group">
-                        <label>作品编号（0-5）：</label>
-                        <select id="portfolioIndex" class="admin-input">
-                            <option value="0">作品 1</option>
-                            <option value="1">作品 2</option>
-                            <option value="2">作品 3</option>
-                            <option value="3">作品 4</option>
-                            <option value="4">作品 5</option>
-                            <option value="5">作品 6</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label>作品标题：</label>
-                        <input type="text" id="portfolioTitle" placeholder="输入作品标题" class="admin-input">
-                    </div>
-
-                    <div class="form-group">
-                        <label>作品描述：</label>
-                        <input type="text" id="portfolioDesc" placeholder="输入作品描述" class="admin-input">
-                    </div>
-
-                    <div class="form-group">
-                        <label>作品图片 URL：</label>
-                        <input type="text" id="portfolioImg" placeholder="输入图片链接" class="admin-input">
-                    </div>
-
-                    <div class="form-group">
-                        <label>分类标签：</label>
-                        <select id="portfolioCategory" class="admin-input">
-                            <option value="all">全部</option>
-                            <option value="video">视频</option>
-                            <option value="design">设计</option>
-                            <option value="ai">AI</option>
-                            <option value="photo">摄影</option>
-                        </select>
-                    </div>
-
-                    <button class="admin-btn-small" onclick="updatePortfolio()">✓ 保存作品</button>
-                </div>
-
-                <!-- 操作按钮 -->
-                <div class="admin-actions">
-                    <button class="admin-btn-save" onclick="saveAllChanges()">💾 保存所有</button>
-                    <button class="admin-btn-reset" onclick="resetChanges()">↶ 重置</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <script src="js/script.js"></script>
-    <script src="js/admin.js"></script>
 </body>
 </html>
