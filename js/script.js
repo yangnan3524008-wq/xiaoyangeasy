@@ -1,84 +1,55 @@
 // ========================================
-// 小羊不难 - 高级毛玻璃设计交互脚本
+// 网站主脚本 - 高级毛玻璃风格版本
 // ========================================
 
 document.addEventListener('DOMContentLoaded', function() {
-    initNavigation();
-    initPortfolioFilter();
-    initFormValidation();
-    initScrollAnimations();
-    initMouseGlow();
+    initializeWebsite();
 });
 
-// ========== 导航交互 ==========
-function initNavigation() {
-    const navItems = document.querySelectorAll('.nav-item');
-    const navMenu = document.querySelector('.nav-menu');
+// 初始化网站
+function initializeWebsite() {
+    setupNavigation();
+    setupPortfolioFilter();
+    setupScrollAnimations();
+    setupContactForm();
+    restoreHeroBackground();
+    loadSavedData();
+}
 
-    navItems.forEach(item => {
-        item.addEventListener('click', function(e) {
-            e.preventDefault();
-            const targetId = this.getAttribute('href');
-            
-            if (targetId && targetId !== '#') {
-                navItems.forEach(i => i.style.opacity = '0.7');
-                this.style.opacity = '1';
-                
-                const target = document.querySelector(targetId);
-                if (target) {
-                    const offset = 80;
-                    const targetPosition = target.offsetTop - offset;
-                    window.scrollTo({
-                        top: targetPosition,
-                        behavior: 'smooth'
-                    });
-                }
-            }
-        });
+// ========== 导航栏交互 ==========
+function setupNavigation() {
+    const navToggle = document.getElementById('navToggle');
+    const navMenu = document.getElementById('navMenu');
+
+    navToggle?.addEventListener('click', function() {
+        navMenu.style.display = navMenu.style.display === 'flex' ? 'none' : 'flex';
     });
 
-    // 滚动时更新导航状态
-    window.addEventListener('scroll', () => {
-        const scrollY = window.scrollY;
-        
-        navItems.forEach(item => {
-            const targetId = item.getAttribute('href');
-            if (targetId && targetId !== '#') {
-                const target = document.querySelector(targetId);
-                if (target) {
-                    const rect = target.getBoundingClientRect();
-                    if (rect.top < 150 && rect.bottom > 150) {
-                        navItems.forEach(i => i.style.opacity = '0.7');
-                        item.style.opacity = '1';
-                    }
-                }
-            }
+    document.querySelectorAll('.nav-item').forEach(item => {
+        item.addEventListener('click', function() {
+            navMenu.style.display = 'none';
         });
     });
 }
 
 // ========== 作品集过滤 ==========
-function initPortfolioFilter() {
+function setupPortfolioFilter() {
     const filterBtns = document.querySelectorAll('.filter-btn');
     const portfolioCards = document.querySelectorAll('.portfolio-card');
 
     filterBtns.forEach(btn => {
         btn.addEventListener('click', function() {
-            const filterValue = this.getAttribute('data-filter');
-
-            // 更新按钮状态
             filterBtns.forEach(b => b.classList.remove('active'));
             this.classList.add('active');
 
-            // 过滤卡片
+            const filter = this.getAttribute('data-filter');
+
             portfolioCards.forEach(card => {
                 const category = card.getAttribute('data-category');
-                
-                if (filterValue === 'all' || category === filterValue) {
+                if (filter === 'all' || category === filter) {
                     card.style.display = 'block';
-                    card.style.animation = 'none';
                     setTimeout(() => {
-                        card.style.animation = 'fade-in-up 0.6s ease-out';
+                        card.style.opacity = '1';
                     }, 10);
                 } else {
                     card.style.display = 'none';
@@ -88,118 +59,131 @@ function initPortfolioFilter() {
     });
 }
 
-// ========== 表单验证 ==========
-function initFormValidation() {
+// ========== 滚动动画 ==========
+function setupScrollAnimations() {
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -100px 0px'
+    };
+
+    const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+            }
+        });
+    }, observerOptions);
+
+    document.querySelectorAll('.glass-card, .skill-card, .service-card, .testimonial').forEach(el => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(20px)';
+        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        observer.observe(el);
+    });
+}
+
+// ========== 联系表单 ==========
+function setupContactForm() {
     const form = document.getElementById('contactForm');
     if (!form) return;
 
     form.addEventListener('submit', function(e) {
         e.preventDefault();
 
-        const inputs = form.querySelectorAll('input, textarea');
-        let isValid = true;
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const subject = document.getElementById('subject').value;
+        const message = document.getElementById('message').value;
 
-        inputs.forEach(input => {
-            if (!input.value.trim()) {
-                isValid = false;
-                highlightInput(input);
-            }
-
-            if (input.type === 'email' && input.value) {
-                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                if (!emailRegex.test(input.value)) {
-                    isValid = false;
-                    highlightInput(input);
-                }
-            }
-        });
-
-        if (isValid) {
-            const btn = form.querySelector('.submit-btn');
-            const originalText = btn.textContent;
-            
-            btn.textContent = '✓ 消息已发送！';
-            btn.disabled = true;
-
-            setTimeout(() => {
-                form.reset();
-                btn.textContent = originalText;
-                btn.disabled = false;
-            }, 2000);
+        if (!name || !email || !subject || !message) {
+            showError('请填写所有字段');
+            return;
         }
+
+        // 模拟发送（实际需要后端支持）
+        console.log('表单数据:', { name, email, subject, message });
+
+        showSuccess('✓ 消息已发送，我们会尽快回复！');
+
+        form.reset();
     });
+}
 
-    function highlightInput(input) {
-        input.style.borderColor = 'rgba(255, 0, 85, 0.8)';
-        input.style.backgroundColor = 'rgba(255, 0, 85, 0.1)';
+// ========== 背景恢复 ==========
+function restoreHeroBackground() {
+    const savedData = localStorage.getItem('websiteData');
+    if (!savedData) return;
 
-        input.addEventListener('focus', function() {
-            this.style.borderColor = 'rgba(255, 0, 85, 0.5)';
-            this.style.backgroundColor = 'rgba(255, 255, 255, 0.05)';
-        });
+    try {
+        const data = JSON.parse(savedData);
+        if (data.hero && data.hero.bgUrl) {
+            const heroVideo = document.getElementById('heroVideo');
+            const heroBgImage = document.getElementById('heroBgImage');
 
-        input.addEventListener('blur', function() {
-            if (!this.value.trim()) {
-                this.style.borderColor = 'rgba(255, 0, 85, 0.8)';
-                this.style.backgroundColor = 'rgba(255, 0, 85, 0.1)';
+            if (data.hero.bgType === 'video') {
+                heroVideo.src = data.hero.bgUrl;
+                heroVideo.classList.add('active');
+                heroBgImage.classList.add('hidden');
+            } else {
+                heroBgImage.style.backgroundImage = `url('${data.hero.bgUrl}')`;
+                heroBgImage.classList.remove('hidden');
+                heroVideo.classList.remove('active');
             }
-        });
+        }
+    } catch (e) {
+        console.error('背景恢复失败:', e);
     }
 }
 
-// ========== 滚动动画 ==========
-function initScrollAnimations() {
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -100px 0px'
-    };
+// ========== 加载保存数据 ==========
+function loadSavedData() {
+    const savedData = localStorage.getItem('websiteData');
+    if (!savedData) return;
 
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.style.opacity = '1';
-                entry.target.style.transform = 'translateY(0)';
-                observer.unobserve(entry.target);
+    try {
+        const data = JSON.parse(savedData);
+
+        // 恢复英雄区文字
+        if (data.hero) {
+            if (data.hero.badge) document.querySelector('.hero-badge').textContent = data.hero.badge;
+            if (data.hero.titleLines) {
+                const titleLines = document.querySelectorAll('.title-line');
+                data.hero.titleLines.forEach((line, i) => {
+                    if (titleLines[i]) titleLines[i].textContent = line;
+                });
             }
-        });
-    }, observerOptions);
+            if (data.hero.description) document.querySelector('.hero-description').textContent = data.hero.description;
+        }
 
-    // 观察需要动画的元素
-    const animatedElements = document.querySelectorAll(
-        '.glass-card, .ability-card, .service-card, .testimonial, .portfolio-card'
-    );
-
-    animatedElements.forEach(el => {
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(30px)';
-        el.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
-        observer.observe(el);
-    });
+        // 恢复关于区
+        if (data.about && data.about.text) {
+            const aboutContent = document.querySelector('.glass-panel.large');
+            if (aboutContent) {
+                aboutContent.innerHTML = `<h3>我的故事</h3>` + 
+                    data.about.text.split('\n').map(line => `<p>${line}</p>`).join('');
+            }
+        }
+    } catch (e) {
+        console.error('数据加载失败:', e);
+    }
 }
 
-// ========== 鼠标发光效果 ==========
-function initMouseGlow() {
-    const cards = document.querySelectorAll('.glass-card');
+// ========== 提示函数 ==========
+function showSuccess(message) {
+    const notification = document.createElement('div');
+    notification.className = 'admin-success';
+    notification.textContent = message;
+    document.body.appendChild(notification);
 
-    cards.forEach(card => {
-        card.addEventListener('mousemove', function(e) {
-            const rect = this.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
-
-            const centerX = rect.width / 2;
-            const centerY = rect.height / 2;
-
-            const rotateX = (y - centerY) / 10;
-            const rotateY = (centerX - x) / 10;
-
-            this.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(10px)`;
-        });
-
-        card.addEventListener('mouseleave', function() {
-            this.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateZ(0)';
-        });
-    });
+    setTimeout(() => notification.remove(), 3000);
 }
 
-console.log('🔮 高级毛玻璃设计已加载！');
+function showError(message) {
+    const notification = document.createElement('div');
+    notification.className = 'admin-error';
+    notification.textContent = message;
+    document.body.appendChild(notification);
+
+    setTimeout(() => notification.remove(), 3000);
+}
