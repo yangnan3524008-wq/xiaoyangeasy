@@ -1,5 +1,5 @@
 // ========================================
-// 网站主脚本 - 高级毛玻璃风格版本
+// 网站主脚本 - 简洁高级毛玻璃版本
 // ========================================
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -12,8 +12,6 @@ function initializeWebsite() {
     setupPortfolioFilter();
     setupScrollAnimations();
     setupContactForm();
-    restoreHeroBackground();
-    loadSavedData();
 }
 
 // ========== 导航栏交互 ==========
@@ -75,7 +73,7 @@ function setupScrollAnimations() {
         });
     }, observerOptions);
 
-    document.querySelectorAll('.glass-card, .skill-card, .service-card, .testimonial').forEach(el => {
+    document.querySelectorAll('.glass-card, .skill-card, .service-card').forEach(el => {
         el.style.opacity = '0';
         el.style.transform = 'translateY(20px)';
         el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
@@ -101,79 +99,30 @@ function setupContactForm() {
             return;
         }
 
-        // 模拟发送（实际需要后端支持）
         console.log('表单数据:', { name, email, subject, message });
-
         showSuccess('✓ 消息已发送，我们会尽快回复！');
-
         form.reset();
     });
-}
-
-// ========== 背景恢复 ==========
-function restoreHeroBackground() {
-    const savedData = localStorage.getItem('websiteData');
-    if (!savedData) return;
-
-    try {
-        const data = JSON.parse(savedData);
-        if (data.hero && data.hero.bgUrl) {
-            const heroVideo = document.getElementById('heroVideo');
-            const heroBgImage = document.getElementById('heroBgImage');
-
-            if (data.hero.bgType === 'video') {
-                heroVideo.src = data.hero.bgUrl;
-                heroVideo.classList.add('active');
-                heroBgImage.classList.add('hidden');
-            } else {
-                heroBgImage.style.backgroundImage = `url('${data.hero.bgUrl}')`;
-                heroBgImage.classList.remove('hidden');
-                heroVideo.classList.remove('active');
-            }
-        }
-    } catch (e) {
-        console.error('背景恢复失败:', e);
-    }
-}
-
-// ========== 加载保存数据 ==========
-function loadSavedData() {
-    const savedData = localStorage.getItem('websiteData');
-    if (!savedData) return;
-
-    try {
-        const data = JSON.parse(savedData);
-
-        // 恢复英雄区文字
-        if (data.hero) {
-            if (data.hero.badge) document.querySelector('.hero-badge').textContent = data.hero.badge;
-            if (data.hero.titleLines) {
-                const titleLines = document.querySelectorAll('.title-line');
-                data.hero.titleLines.forEach((line, i) => {
-                    if (titleLines[i]) titleLines[i].textContent = line;
-                });
-            }
-            if (data.hero.description) document.querySelector('.hero-description').textContent = data.hero.description;
-        }
-
-        // 恢复关于区
-        if (data.about && data.about.text) {
-            const aboutContent = document.querySelector('.glass-panel.large');
-            if (aboutContent) {
-                aboutContent.innerHTML = `<h3>我的故事</h3>` + 
-                    data.about.text.split('\n').map(line => `<p>${line}</p>`).join('');
-            }
-        }
-    } catch (e) {
-        console.error('数据加载失败:', e);
-    }
 }
 
 // ========== 提示函数 ==========
 function showSuccess(message) {
     const notification = document.createElement('div');
-    notification.className = 'admin-success';
+    notification.className = 'notification notification-success';
     notification.textContent = message;
+    notification.style.cssText = `
+        position: fixed;
+        top: 100px;
+        right: 20px;
+        background: rgba(0, 255, 150, 0.2);
+        border: 1px solid rgba(0, 255, 150, 0.5);
+        color: #00ff96;
+        padding: 15px 25px;
+        border-radius: 10px;
+        backdrop-filter: blur(10px);
+        z-index: 2000;
+        animation: slideIn 0.3s ease;
+    `;
     document.body.appendChild(notification);
 
     setTimeout(() => notification.remove(), 3000);
@@ -181,8 +130,21 @@ function showSuccess(message) {
 
 function showError(message) {
     const notification = document.createElement('div');
-    notification.className = 'admin-error';
+    notification.className = 'notification notification-error';
     notification.textContent = message;
+    notification.style.cssText = `
+        position: fixed;
+        top: 100px;
+        right: 20px;
+        background: rgba(255, 0, 85, 0.2);
+        border: 1px solid rgba(255, 0, 85, 0.5);
+        color: #ff0055;
+        padding: 15px 25px;
+        border-radius: 10px;
+        backdrop-filter: blur(10px);
+        z-index: 2000;
+        animation: slideIn 0.3s ease;
+    `;
     document.body.appendChild(notification);
 
     setTimeout(() => notification.remove(), 3000);
